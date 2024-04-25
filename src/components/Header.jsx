@@ -110,12 +110,12 @@ export function Header() {
             <div className="hidden md:block">
               {/* <NavLink href="/login">Sign in</NavLink> */}
               <Button
-                href="https://www.kernelguardian.com"
+                href="https://www.youtube.com/watch?v=4Iy4zN2X_Qc"
                 className="bg-red-500"
               >
                 <span>
                   Youtube Tutorial
-                  <span className="hidden bg-red-500 lg:inline"></span>
+                  <span className="bg-red-500 lg:inline"></span>
                 </span>
               </Button>
             </div>
