@@ -2,6 +2,8 @@ import Image from 'next/image'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { TextField } from '@/components/Fields'
+
 import logoLaravel from '@/images/logos/laravel.svg'
 import logoMirage from '@/images/logos/mirage.svg'
 import logoStatamic from '@/images/logos/statamic.svg'
@@ -30,6 +32,15 @@ export function Hero() {
         Tired of manually downloading and converting ringtons for apple devices?
         Use our tool to do it all for you{' '}
       </p>
+      <TextField
+        label="Youtube Song Link"
+        name="last_name"
+        type="link"
+        autoComplete="family-name"
+        required
+        placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        className="mt-8"
+      />
       <div className="mt-10 flex justify-center gap-x-6">
         <Button href="/register">Convert Now</Button>
         <Button
@@ -45,7 +56,7 @@ export function Hero() {
           <span className="ml-3">Watch video</span>
         </Button>
       </div>
-      <div className="mt-36 lg:mt-44">
+      {/* <div className="mt-36 lg:mt-44">
         <p className="font-display text-base text-slate-900">
           Trusted by these six companies so far
         </p>
@@ -79,7 +90,7 @@ export function Hero() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </Container>
   )
 }

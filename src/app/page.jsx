@@ -10,18 +10,18 @@ import { Testimonials } from '@/components/Testimonials'
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Header />
       <main>
         <Hero />
-        <PrimaryFeatures />
-        <SecondaryFeatures />
-        <CallToAction />
+        {/* <PrimaryFeatures /> */}
+        {/* <SecondaryFeatures /> */}
+        {/* <CallToAction /> */}
         <Testimonials />
         {/* <Pricing /> */}
         {/* <Faqs /> */}
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
