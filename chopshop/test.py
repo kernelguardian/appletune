@@ -1,7 +1,11 @@
 from pytube import YouTube
 from pydub import AudioSegment
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+from utils import uploadFile
 
 if not os.path.exists("assets"):
     os.makedirs("assets")
@@ -49,3 +53,5 @@ audio.download(filename="assets/down/" + Y_ID + audio_format)
 song = AudioSegment.from_file("assets/down/" + Y_ID + audio_format, "mp4")
 sliced_song = song[start:end]
 sliced_song.export("assets/export/" + Y_ID + ".m4r", format="ipod")
+
+uploadFile(filename="assets/export/" + Y_ID + ".m4r")
