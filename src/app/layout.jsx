@@ -5,11 +5,11 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: '%s - AppleTune',
+    default: 'AppleTune - Ringtone made easy',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'AppleTune is a platform that allows you to create and download ringtones for your iPhone, Android, and other devices.',
 }
 
 const inter = Inter({
