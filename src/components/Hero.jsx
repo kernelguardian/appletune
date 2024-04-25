@@ -7,15 +7,17 @@ import RangeSlider from './Slider'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import CircularProgress from '@mui/material/CircularProgress'
 
 let ENDPOINT = 'http://127.0.0.1:8000/'
 ENDPOINT = 'https://fruitchopshop.fly.dev/'
 
 export function Hero() {
   const [URL, setURL] = useState('')
-  const [maxValue, setMaxValue] = useState(150)
+  const [maxValue, setMaxValue] = useState(60 * 8)
   const [value1, setValue1] = useState([20, 37])
   const [downloadLink, setDownloadLink] = useState('')
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     if (URL === '') {
@@ -70,6 +72,8 @@ export function Hero() {
           setURL(e.target.value)
         }}
       />
+      {loading ? <CircularProgress color="secondary" /> : null}
+
       <div className="mt-4 flex justify-center gap-x-6">
         <RangeSlider
           maxValue={maxValue}
@@ -80,8 +84,9 @@ export function Hero() {
       <div className="mt-4 flex justify-center gap-x-6">
         <Button
           onClick={() => {
-            console.log('Downloading Video')
-            downloader(value1[0], value1[1], URL, setDownloadLink)
+            setLoading(true)
+            // console.log('Downloading Video')
+            downloader(value1[0], value1[1], URL, setDownloadLink, setLoading)
             // setDownloadLink(link)
           }}
         >
@@ -145,7 +150,7 @@ export function Hero() {
   )
 }
 
-function downloader(start, end, link, setDownloadLink) {
+function downloader(start, end, link, setDownloadLink, setLoading) {
   const uuid = uuidv4()
   const myHeaders = new Headers()
   myHeaders.append('URL', link)
@@ -164,6 +169,7 @@ function downloader(start, end, link, setDownloadLink) {
     .then((result) => {
       console.log(result)
       setDownloadLink(result)
+      setLoading(false)
       // return result
     })
     .catch((error) => console.error(error))

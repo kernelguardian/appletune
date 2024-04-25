@@ -32,8 +32,25 @@ export default function RangeSlider(props) {
   return (
     <Box sx={{ width: 500 }}>
       <Slider
+        sx={
+          {
+            // 'MuiSlider-valueLabelLabel': { hello },
+          }
+        }
         getAriaLabel={() => 'Minimum distance'}
         value={props.value1}
+        scale={(x) => {
+          var minutes = Math.floor(x / 60)
+          var remainingSeconds = x % 60
+          return (
+            minutes +
+            ':' +
+            (remainingSeconds < 10 ? '0' : '') +
+            remainingSeconds
+          )
+
+          return x
+        }}
         onChange={handleChange1}
         valueLabelDisplay="auto"
         max={props.maxValue}
