@@ -15,6 +15,7 @@ export function Hero() {
   const [URL, setURL] = useState('')
   const [maxValue, setMaxValue] = useState(150)
   const [value1, setValue1] = useState([20, 37])
+  const [downloadLink, setDownloadLink] = useState('')
 
   useEffect(() => {
     if (URL === '') {
@@ -80,12 +81,17 @@ export function Hero() {
         <Button
           onClick={() => {
             console.log('Downloading Video')
-            downloader(value1[0], value1[1], URL)
+            downloader(value1[0], value1[1], URL, setDownloadLink)
+            // setDownloadLink(link)
           }}
         >
           Convert Now
         </Button>
-
+        {downloadLink == '' ? null : (
+          <Button className="ml-2 bg-blue-500" href={downloadLink}>
+            Download Now
+          </Button>
+        )}
         {/* <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
@@ -139,7 +145,7 @@ export function Hero() {
   )
 }
 
-function downloader(start, end, link) {
+function downloader(start, end, link, setDownloadLink) {
   const uuid = uuidv4()
   const myHeaders = new Headers()
   myHeaders.append('URL', link)
@@ -155,6 +161,10 @@ function downloader(start, end, link) {
 
   fetch(ENDPOINT + 'tune', requestOptions)
     .then((response) => response.text())
-    .then((result) => console.log(result))
+    .then((result) => {
+      console.log(result)
+      setDownloadLink(result)
+      // return result
+    })
     .catch((error) => console.error(error))
 }

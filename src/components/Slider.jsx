@@ -30,7 +30,7 @@ export default function RangeSlider(props) {
   }
 
   return (
-    <Box sx={{ width: 300 }}>
+    <Box sx={{ width: 500 }}>
       <Slider
         getAriaLabel={() => 'Minimum distance'}
         value={props.value1}
