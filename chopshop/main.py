@@ -1,7 +1,6 @@
 from flask import Flask, request
 from pytube import YouTube
 from pydub import AudioSegment
-import os
 from dotenv import load_dotenv
 from flask_cors import CORS
 from datetime import datetime
