@@ -11,6 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 
 let ENDPOINT = 'http://127.0.0.1:8000/'
 ENDPOINT = 'https://fruitchopshop.fly.dev/'
+// ENDPOINT = 'https://kitchen.kernelguardian.com/'
 
 export function Hero() {
   const [URL, setURL] = useState('')
