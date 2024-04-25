@@ -1,5 +1,8 @@
 import os
 from supabase import create_client, Client
+from datetime import datetime
+
+today = str(datetime.today().date()).replace("-", "_")
 
 url: str = os.environ.get("SUPABASE_URL")
 key: str = os.environ.get("SUPABASE_KEY")
@@ -22,13 +25,13 @@ def uploadFile(filename):
 
 def checkPaths():
     if not os.path.exists("assets"):
-        os.makedirs("assets")
+        os.makedirs("assets", exist_ok=True)
 
-    if not os.path.exists("assets/export"):
-        os.makedirs("assets/export")
+    if not os.path.exists("assets/export/" + today + "/"):
+        os.makedirs("assets/export/" + today + "/", exist_ok=True)
 
-    if not os.path.exists("assets/down"):
-        os.makedirs("assets/down")
+    if not os.path.exists("assets/down" + today + "/"):
+        os.makedirs("assets/down/" + today + "/", exist_ok=True)
 
 
 def progress_func(stream, chunk, bytes_remaining):

@@ -4,10 +4,14 @@ from pydub import AudioSegment
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
+from datetime import datetime
+
 
 load_dotenv()
 
 from utils import checkPaths, complete_func, progress_func, uploadFile
+
+today = str(datetime.today().date()).replace("-", "_")
 
 
 checkPaths()
@@ -39,12 +43,14 @@ def tune():
             audio_format = ".webm"
             break
 
-    audio.download(filename="assets/down/" + Y_ID + audio_format)
+    audio.download(filename="assets/down/" + today + "/" + Y_ID + audio_format)
 
-    song = AudioSegment.from_file("assets/down/" + Y_ID + audio_format, "mp4")
+    song = AudioSegment.from_file(
+        "assets/down/" + today + "/" + Y_ID + audio_format, "mp4"
+    )
     sliced_song = song[start:end]
-    sliced_song.export("assets/export/" + Y_ID + ".m4r", format="ipod")
-    return str(uploadFile(filename="assets/export/" + Y_ID + ".m4r"))
+    sliced_song.export("assets/export/" + today + "/" + Y_ID + ".m4r", format="ipod")
+    return str(uploadFile(filename="assets/export/" + today + "/" + Y_ID + ".m4r"))
 
 
 @app.route("/videoconfig")
