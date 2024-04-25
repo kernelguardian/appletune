@@ -109,6 +109,15 @@ export function Header() {
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
               {/* <NavLink href="/login">Sign in</NavLink> */}
+              <Button
+                href="https://www.kernelguardian.com"
+                className="bg-red-500"
+              >
+                <span>
+                  Youtube Tutorial
+                  <span className="hidden bg-red-500 lg:inline"></span>
+                </span>
+              </Button>
             </div>
             <Button href="https://www.kernelguardian.com" className="bg-black">
               <span>
