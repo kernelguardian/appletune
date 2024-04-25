@@ -110,9 +110,9 @@ export function Header() {
             <div className="hidden md:block">
               {/* <NavLink href="/login">Sign in</NavLink> */}
             </div>
-            <Button href="/register" color="blue">
+            <Button href="https://www.kernelguardian.com" className="bg-black">
               <span>
-                Convert <span className="hidden lg:inline">Now</span>
+                Kernelguardian <span className="hidden lg:inline">☕️</span>
               </span>
             </Button>
             <div className="-mr-1 md:hidden">

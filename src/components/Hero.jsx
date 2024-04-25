@@ -1,15 +1,8 @@
-import Image from 'next/image'
+'use client'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { TextField } from '@/components/Fields'
-
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
 
 export function Hero() {
   return (
@@ -42,7 +35,14 @@ export function Hero() {
         className="mt-8"
       />
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/register">Convert Now</Button>
+        <Button
+          onClick={() => {
+            console.log('Downloading Video')
+          }}
+        >
+          Convert Now
+        </Button>
+
         <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
