@@ -3,8 +3,40 @@
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { TextField } from '@/components/Fields'
+import RangeSlider from './Slider'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
+let ENDPOINT = 'http://127.0.0.1:8000/'
+ENDPOINT = 'https://fruitchopshop.fly.dev/'
 
 export function Hero() {
+  const [URL, setURL] = useState('')
+  const [maxValue, setMaxValue] = useState(150)
+  const [value1, setValue1] = useState([20, 37])
+
+  useEffect(() => {
+    if (URL === '') {
+      return
+    }
+    const myHeaders = new Headers()
+    myHeaders.append('URL', URL)
+
+    const requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow',
+    }
+
+    fetch(ENDPOINT + 'videoconfig', requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        setMaxValue(result)
+      })
+      .catch((error) => console.error(error))
+  }, [URL])
+
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
@@ -33,17 +65,28 @@ export function Hero() {
         required
         placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         className="mt-8"
+        onChange={(e) => {
+          setURL(e.target.value)
+        }}
       />
-      <div className="mt-10 flex justify-center gap-x-6">
+      <div className="mt-4 flex justify-center gap-x-6">
+        <RangeSlider
+          maxValue={maxValue}
+          value1={value1}
+          setValue1={setValue1}
+        ></RangeSlider>
+      </div>
+      <div className="mt-4 flex justify-center gap-x-6">
         <Button
           onClick={() => {
             console.log('Downloading Video')
+            downloader(value1[0], value1[1], URL)
           }}
         >
           Convert Now
         </Button>
 
-        <Button
+        {/* <Button
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
         >
@@ -54,8 +97,9 @@ export function Hero() {
             <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
           </svg>
           <span className="ml-3">Watch video</span>
-        </Button>
+        </Button> */}
       </div>
+
       {/* <div className="mt-36 lg:mt-44">
         <p className="font-display text-base text-slate-900">
           Trusted by these six companies so far
@@ -93,4 +137,24 @@ export function Hero() {
       </div> */}
     </Container>
   )
+}
+
+function downloader(start, end, link) {
+  const uuid = uuidv4()
+  const myHeaders = new Headers()
+  myHeaders.append('URL', link)
+  myHeaders.append('ID', uuid)
+  myHeaders.append('START', start * 1000)
+  myHeaders.append('END', end * 1000)
+
+  const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow',
+  }
+
+  fetch(ENDPOINT + 'tune', requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error))
 }

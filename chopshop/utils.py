@@ -10,9 +10,14 @@ bucket_name: str = "appletune"
 
 
 def uploadFile(filename):
-    file = load_file(filename)
-    data = supabase.storage.from_(bucket_name).upload(path=filename, file=file)
-    return data.url
+    try:
+        file = load_file(filename)
+        data = supabase.storage.from_(bucket_name).upload(path=filename, file=file)
+
+        res = supabase.storage.from_(bucket_name).get_public_url(filename)
+        return res
+    except Exception as err:
+        return "Error"
 
 
 def checkPaths():

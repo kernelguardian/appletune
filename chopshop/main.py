@@ -3,6 +3,7 @@ from pytube import YouTube
 from pydub import AudioSegment
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 
 load_dotenv()
 
@@ -12,14 +13,15 @@ from utils import checkPaths, complete_func, progress_func, uploadFile
 checkPaths()
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/tune")
 def tune():
     Y_URL = request.headers.get("URL")
     Y_ID = request.headers.get("ID")
-    start = request.headers.get("START")
-    end = request.headers.get("END")
+    start = int(request.headers.get("START"))
+    end = int(request.headers.get("END"))
 
     yt = YouTube(
         Y_URL,
@@ -42,7 +44,7 @@ def tune():
     song = AudioSegment.from_file("assets/down/" + Y_ID + audio_format, "mp4")
     sliced_song = song[start:end]
     sliced_song.export("assets/export/" + Y_ID + ".m4r", format="ipod")
-    return uploadFile(filename="assets/export/" + Y_ID + ".m4r")
+    return str(uploadFile(filename="assets/export/" + Y_ID + ".m4r"))
 
 
 @app.route("/videoconfig")

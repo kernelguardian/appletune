@@ -27,31 +27,31 @@ def complete_func(stream, file_handle):
     print(stream, file_handle)
 
 
-Y_ID = "test"
-start = 10 * 1000
-end = 50 * 1000
+# Y_ID = "test"
+# start = 10 * 1000
+# end = 50 * 1000
 
-yt = YouTube(
-    "https://youtu.be/3f2gfIImoas?list=RDMM3f2gfIImoas",
-    on_progress_callback=progress_func,
-    on_complete_callback=complete_func,
-)
-available_formats = yt.streams.filter(only_audio=True)
-for i in range(len(available_formats)):
-    if available_formats[i].mime_type == "audio/mp4":
-        audio = yt.streams.filter(only_audio=True)[i]
-        audio_format = ".mp4"
-        break
-    if available_formats[i].mime_type == "audio/webm":
-        audio = yt.streams.filter(only_audio=True)[i]
-        audio_format = ".webm"
-        break
+# yt = YouTube(
+#     "https://youtu.be/3f2gfIImoas?list=RDMM3f2gfIImoas",
+#     on_progress_callback=progress_func,
+#     on_complete_callback=complete_func,
+# )
+# available_formats = yt.streams.filter(only_audio=True)
+# for i in range(len(available_formats)):
+#     if available_formats[i].mime_type == "audio/mp4":
+#         audio = yt.streams.filter(only_audio=True)[i]
+#         audio_format = ".mp4"
+#         break
+#     if available_formats[i].mime_type == "audio/webm":
+#         audio = yt.streams.filter(only_audio=True)[i]
+#         audio_format = ".webm"
+#         break
 
 
-audio.download(filename="assets/down/" + Y_ID + audio_format)
+# audio.download(filename="assets/down/" + Y_ID + audio_format)
 
-song = AudioSegment.from_file("assets/down/" + Y_ID + audio_format, "mp4")
-sliced_song = song[start:end]
-sliced_song.export("assets/export/" + Y_ID + ".m4r", format="ipod")
+# song = AudioSegment.from_file("assets/down/" + Y_ID + audio_format, "mp4")
+# sliced_song = song[start:end]
+# sliced_song.export("assets/export/" + Y_ID + ".m4r", format="ipod")
 
-uploadFile(filename="assets/export/" + Y_ID + ".m4r")
+uploadFile(filename="assets/export/" + "123" + ".m4r")
