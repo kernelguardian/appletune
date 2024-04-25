@@ -6,53 +6,50 @@ import backgroundImage from '@/images/background-faqs.jpg'
 const faqs = [
   [
     {
-      question: 'Does TaxPal handle VAT?',
+      question: 'Why does this even exist?',
       answer:
-        'Well no, but if you move your company offshore you can probably ignore it.',
+        'We are not sure, but we are pretty sure it’s not for any good reason.',
     },
     {
-      question: 'Can I pay for my subscription via purchase order?',
-      answer: 'Absolutely, we are happy to take your money in all forms.',
+      question: 'Can I pay with Bitcoin?',
+      answer:
+        'Sure, just send us an email appletune@kernelguardian.com and we will send you our wallet address.',
     },
     {
-      question: 'How do I apply for a job at TaxPal?',
-      answer:
-        'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
+      // Funny question and answer
+      question: 'Is this a joke?',
+      answer: 'No, but we are working on it.',
     },
   ],
   [
     {
-      question: 'What was that testimonial about tax fraud all about?',
-      answer:
-        'TaxPal is just a software application, ultimately your books are your responsibility.',
+      question: 'What is the best way to get in touch with support?',
+      answer: 'support@kernelguardian.com',
     },
     {
-      question:
-        'TaxPal sounds horrible but why do I still feel compelled to purchase?',
+      question: 'Do you have a mobile app? I can’t find it in the app store.',
       answer:
-        'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
+        'No, we don’t have a mobile app. We are still trying to figure out how to make a website. 😶‍🌫️',
     },
     {
-      question:
-        'I found other companies called TaxPal, are you sure you can use this name?',
-      answer:
-        'Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.',
+      question: 'Is this a real company? Are you incorporated?',
+      answer: 'Honestly, IDK. ',
     },
   ],
   [
     {
-      question: 'How do you generate reports?',
+      question: 'Can I hire you to create something for me?',
       answer:
-        'You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.',
+        'Sure, send us an email with your requirements and we will get back to you with a quote. We are not cheap. 💸',
     },
     {
-      question: 'Can we expect more inventory features?',
-      answer: 'In life it’s really better to never expect anything at all.',
+      question: 'Can we expect more features?',
+      answer: 'In life it’s really better to never expect anything at all. 🤷‍♂️',
     },
     {
-      question: 'I lost my password, how do I get into my account?',
+      question: 'Who are you even? What is your name?',
       answer:
-        'Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.',
+        'You can find more about me by visiting my website: kernelguardian.com. 🤓',
     },
   ],
 ]
