@@ -11,19 +11,19 @@ const testimonials = [
   [
     {
       content:
-        'TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'appleTune is a revolutionary service! I love how it lets me turn any YouTube video into a custom iPhone ringtone, because who needs originality anyway?',
       author: {
-        name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
+        name: 'Steve Soundbite',
+        role: 'Chief Noise Officer at Decibel Corp',
         image: avatarImage1,
       },
     },
     {
       content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+        'Thanks to appleTune, I can now annoy everyone around me with the latest viral video soundbites, because why settle for peace and quiet?',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        name: 'Karen Clippy',
+        role: 'Vice President of Noise Pollution at Sonic Solutions',
         image: avatarImage4,
       },
     },
@@ -31,19 +31,19 @@ const testimonials = [
   [
     {
       content:
-        'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+        'I used to have to search for quality music to set as my ringtone. Now with appleTune, I can extract low-quality audio clips from random YouTube videos. It’s like downgrading my phone experience, but hey, who needs high standards?',
       author: {
-        name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
+        name: 'Audiophile Reject',
+        role: 'Founder of Soundless Symphony',
         image: avatarImage5,
       },
     },
     {
       content:
-        'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
+        'appleTune is amazing! Now I can spend hours searching for the perfect audio snippet from cat videos to make my phone sound utterly ridiculous. My social life is booming... with laughter from my friends.',
       author: {
-        name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
+        name: 'Tuneless Tim',
+        role: 'Director of Dubious Decibels',
         image: avatarImage2,
       },
     },
@@ -51,19 +51,19 @@ const testimonials = [
   [
     {
       content:
-        'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
+        'Thanks to appleTune, I can now proudly announce my iPhone’s arrival with the dulcet tones of screaming goats and baby giggles. Who needs professionalism when you can have absurdity?',
       author: {
-        name: 'Peter Renolds',
-        role: 'Founder of West Inc',
+        name: 'Ear-splitting Eddie',
+        role: 'Head of Sonic Disturbance at Decibel Dynamics',
         image: avatarImage3,
       },
     },
     {
       content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+        'Shoutout to appleTune for making my phone ringtone the talk of the town! Now, everyone can hear snippets of my embarrassing YouTube obsessions every time I get a call. Thanks for the public humiliation!',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        name: 'Tone-deaf Tammy',
+        role: 'CEO of Earache Enterprises',
         image: avatarImage4,
       },
     },
