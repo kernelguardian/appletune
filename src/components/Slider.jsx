@@ -9,7 +9,18 @@ function valuetext(value) {
 const minDistance = 7
 
 export default function RangeSlider(props) {
-  // const [props.value1, props.setValue1] = React.useState([20, 37])
+  let marks = [
+    {
+      value: 0,
+      label: '0:00',
+    },
+  ]
+  for (let i = 0; i < props.maxValue / 60; i++) {
+    marks.push({
+      value: i * 60,
+      label: i + ':00',
+    })
+  }
 
   const handleChange1 = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -32,11 +43,6 @@ export default function RangeSlider(props) {
   return (
     <Box sx={{ width: 500 }}>
       <Slider
-        sx={
-          {
-            // 'MuiSlider-valueLabelLabel': { hello },
-          }
-        }
         getAriaLabel={() => 'Minimum distance'}
         value={props.value1}
         scale={(x) => {
@@ -48,13 +54,12 @@ export default function RangeSlider(props) {
             (remainingSeconds < 10 ? '0' : '') +
             remainingSeconds
           )
-
-          return x
         }}
         onChange={handleChange1}
-        valueLabelDisplay="auto"
+        marks={marks}
         max={props.maxValue}
         getAriaValueText={valuetext}
+        valueLabelDisplay="on"
         disableSwap
       />
     </Box>
