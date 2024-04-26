@@ -86,8 +86,19 @@ export function Hero() {
         <Button
           onClick={() => {
             setLoading(true)
-            // console.log('Downloading Video')
+            if (URL === '') {
+              alert('Please enter a valid URL')
+              setLoading(false)
+              return
+            }
+            if (value1[1] - value1[0] > 40) {
+              alert('Apple ringtones can only be 40 seconds long')
+              setLoading(false)
+              return
+            }
+
             downloader(value1[0], value1[1], URL, setDownloadLink, setLoading)
+            console.log('downloadLink', downloadLink)
             // setDownloadLink(link)
           }}
         >
